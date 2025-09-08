@@ -1,0 +1,5 @@
+td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+    tr:hover {background-color: #D6EEEE;}
+}
