@@ -2579,52 +2579,66 @@ select.mobile-device {
 
 
 /*--------------------PAGES DETAILS PROJETS--------------*/
-/* Style de la frise par étapes */
 .step-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Aligne les éléments sur toute la largeur */
     margin-top: 30px;
-    flex-wrap: wrap; /* Pour le mobile */
+    gap: 5px; /* Réduit l'espace entre les éléments */
 }
 
 .step-box {
-    background: #fff;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    width: 20%;
-    min-height: 120px;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    background: #ffffff;
+    border: 1px solid #e1e1e1;
+    padding: 10px 5px; /* Moins de padding interne */
+    border-radius: 8px;
+    flex: 1; /* Force chaque boîte à prendre la même largeur égale */
+    min-width: 0; /* Évite que les boîtes ne débordent */
+    min-height: 110px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.step-box p {
+    font-size: 11px; /* Réduit la taille du texte pour que ça tienne */
+    line-height: 1.2;
+    margin: 0;
 }
 
 .step-number {
     font-weight: bold;
-    color: #3c3d3d; 
-    font-size: 1.2rem;
+    font-size: 1.1em; /* Un peu plus petit */
+    color: #3c3d3d;
     margin-bottom: 5px;
 }
 
 .step-arrow {
+    font-size: 14px; /* Flèches plus petites */
     color: #3c3d3d;
-    font-size: 24px;
+    flex-shrink: 0; /* Empêche la flèche de s'écraser */
 }
 
-.active-step {
-    border-color: #3c3d3d;
-    background-color: #fff9f0;
-}
-
-.hr-custom {
-    width: 50px;
-    border-top: 3px solid #3c3d3d;
-    margin: 20px auto;
-}
-
-/* Mobile : on empile les étapes */
-@media (max-width: 768px) {
+/* Garde le responsive pour mobile (empilé) */
+@media (max-width: 991px) {
     .step-container { flex-direction: column; }
-    .step-box { width: 90%; margin-bottom: 10px; }
-    .step-arrow { transform: rotate(90deg); margin: 10px 0; }
+    .step-box { width: 100%; margin-bottom: 10px; }
+    .step-arrow { transform: rotate(90deg); margin: 5px 0; }
+}
+
+
+
+
+
+/* Supprime l'overlay noir uniquement dans la section Veille (ID #blog) */
+#blog .post-thumb::before {
+    display: none !important;
+}
+
+/* Optionnel : Ajoute un petit effet de zoom sur l'image pour montrer que c'est cliquable */
+#blog .post-thumb img {
+    transition: transform 0.3s ease;
+}
+
+#blog .post-thumb:hover img {
+    transform: scale(1.03);
+    cursor: pointer;
 }
